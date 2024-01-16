@@ -1,0 +1,76 @@
+.navbarComponent {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  height: 70px;
+  background-color: orange;
+
+  .navHeader {
+    padding-left: 1rem;
+
+    a {
+      text-decoration: none;
+    }
+    h2 {
+      color: black;
+    }
+  }
+
+  .navBody {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+
+    input {
+      width: 80%;
+      border: 1px solid gray;
+      border-top-left-radius: 15px;
+      border-bottom-left-radius: 15px;
+      padding-left: 15px;
+      border-right: none;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .btn-search {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid gray;
+      border-left: none;
+      padding: 0.3rem 0.6rem;
+      background-color: white;
+      border-top-right-radius: 15px;
+      border-bottom-right-radius: 15px;
+    }
+  }
+
+  .navFooter {
+    min-width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .cart {
+      position: relative;
+
+      svg {
+        color: white;
+      }
+
+      span {
+        position: absolute;
+        left: 25px;
+        bottom: 25px;
+        font-weight: bold;
+        background-color: rgb(229, 229, 229);
+        padding: 0 0.4rem;
+        border-radius: 100%;
+      }
+    }
+  }
+}

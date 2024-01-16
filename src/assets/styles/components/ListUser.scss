@@ -1,0 +1,32 @@
+.listUser {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 1rem;
+  position: relative;
+
+  button {
+    border: none;
+    padding: 0.5rem 1rem;
+    min-width: 50px;
+    border-radius: 10px;
+    background-color: blue;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .btn-edit {
+    color: orange;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    padding-right: 0.5rem;
+  }
+  .btn-delete {
+    color: red;
+    font-weight: bold;
+    cursor: pointer;
+    padding-left: 0.5rem;
+  }
+}
