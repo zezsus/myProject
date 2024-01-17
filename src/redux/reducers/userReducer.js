@@ -1,5 +1,7 @@
 const initState = {
   listUser: [],
+  editUser: {},
+  showDelete: false,
 };
 
 export const UserReducer = (state = initState, action) => {
@@ -14,25 +16,44 @@ export const UserReducer = (state = initState, action) => {
     }
 
     case "EDIT_USER": {
-      return state;
+      return {
+        ...state,
+        editUser: action.payload,
+      };
+    }
+
+    case "UPDATE_USER": {
+      const updatedUser = state.listUser.map((user) => {
+        if (user.id === action.payload.id) {
+          return action.payload;
+        } else {
+          return user;
+        }
+      });
+
+      return {
+        ...state,
+        listUser: updatedUser,
+      };
+    }
+
+    case "SHOW_DELETE_USER": {
+      return {
+        ...state,
+        showDelete: action.payload,
+      };
     }
 
     case "DELETE_USER": {
       const updateListUser = state.listUser.filter(
         (user) => user.id !== action.payload
       );
-
-      console.log(updateListUser);
-
       return {
         ...state,
         listUser: updateListUser,
       };
     }
 
-    case "SEARCH_USER": {
-      return state;
-    }
     default:
       return state;
   }

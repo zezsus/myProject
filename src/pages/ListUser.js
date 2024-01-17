@@ -2,29 +2,32 @@ import React from "react";
 import "../assets/styles/components/ListUser.scss";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { setDeleteUser } from "../redux/actions/userAction";
+import { setEditUser, setShowDeleteUser } from "../redux/actions/userAction.js";
+import DeleteUser from "../components/DeleteUser.js";
 
 const ListUser = () => {
   const listUser = useSelector((state) => state.user.listUser);
+  const showDeleteUser = useSelector((state) => state.user.showDelete);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const handleAdd = () => {
+
+  const handleShowAdd = () => {
     navigate("/add");
   };
 
-  const handleEdit = () => {
+  const handleEdit = (user) => {
+    dispatch(setEditUser(user));
     navigate("/edit");
   };
 
-  const handleDelete = (userId) => {
-    const actionDelete = setDeleteUser(userId);
-    dispatch(actionDelete);
+  const handleShowDelete = () => {
+    dispatch(setShowDeleteUser(true));
   };
 
   return (
     <div className="listUser">
       <div className="addUser">
-        <button onClick={handleAdd}>Add</button>
+        <button onClick={handleShowAdd}>Add</button>
       </div>
       <div className="bodyListUser">
         <table className="table">
@@ -46,14 +49,16 @@ const ListUser = () => {
                   <td>{user.phone}</td>
                   <td>{user.address}</td>
                   <td>
-                    <span className="btn-edit" onClick={handleEdit}>
+                    <span className="btn-edit" onClick={() => handleEdit(user)}>
                       Edit
                     </span>
-                    <span
-                      className="btn-delete"
-                      onClick={() => handleDelete(user.id)}>
-                      Delete
-                    </span>
+                    {showDeleteUser ? (
+                      <DeleteUser userId={user.id} />
+                    ) : (
+                      <span className="btn-delete" onClick={handleShowDelete}>
+                        Delete
+                      </span>
+                    )}
                   </td>
                 </tr>
               );

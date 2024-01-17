@@ -1,7 +1,6 @@
 import React from "react";
 import "../assets/styles/components/NavbarComponent.scss";
 import { IoSearch } from "react-icons/io5";
-import { MdOutlineShoppingCart } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 
 const NavbarComponent = () => {
