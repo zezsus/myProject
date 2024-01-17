@@ -4,16 +4,16 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setAddUser } from "../redux/actions/userAction";
 
-const AddUser = () => {
+const AddUser: React.FC = () => {
   const navigate = useNavigate();
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
-  const [error, setError] = useState(null);
+   const [error, setError] = useState<string | null>(null);
 
   const dispatch = useDispatch();
 
-  const handlePhoneChange = (e) => {
+  const handlePhoneChange = (e: any) => {
     const inputPhone = e.target.value;
     const formatPhone = inputPhone.replace(/[^0-9]/g, "").slice(0, 10);
     setPhone(formatPhone);
@@ -21,7 +21,7 @@ const AddUser = () => {
 
   const handleAddUser = () => {
     if (!name || !phone || !address) {
-      setError("Please enter all the required information.");
+     setError("Please enter all the required information.");
       setTimeout(() => setError(""), 3000);
     } else {
       const newUser = {

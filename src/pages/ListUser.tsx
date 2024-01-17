@@ -2,12 +2,12 @@ import React from "react";
 import "../assets/styles/components/ListUser.scss";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { setEditUser, setShowDeleteUser } from "../redux/actions/userAction.js";
-import DeleteUser from "../components/DeleteUser.js";
+import { setEditUser, setShowDeleteUser } from "../redux/actions/userAction";
+import DeleteUser from "../components/DeleteUser";
 
-const ListUser = () => {
-  const listUser = useSelector((state) => state.user.listUser);
-  const showDeleteUser = useSelector((state) => state.user.showDelete);
+const ListUser: React.FC = () => {
+  const listUser = useSelector((state:any) => state.user.listUser);
+  const showDeleteUser = useSelector((state:any) => state.user.showDelete);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -15,7 +15,7 @@ const ListUser = () => {
     navigate("/add");
   };
 
-  const handleEdit = (user) => {
+  const handleEdit = (user:any) => {
     dispatch(setEditUser(user));
     navigate("/edit");
   };
@@ -41,7 +41,7 @@ const ListUser = () => {
             </tr>
           </thead>
           <tbody>
-            {listUser.map((user, index) => {
+            {listUser.map((user:any, index:any) => {
               return (
                 <tr key={user.id}>
                   <td style={{ fontWeight: "bold" }}>{index + 1}</td>

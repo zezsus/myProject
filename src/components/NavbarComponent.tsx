@@ -3,7 +3,7 @@ import "../assets/styles/components/NavbarComponent.scss";
 import { IoSearch } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
 
-const NavbarComponent = () => {
+const NavbarComponent: React.FC = () => {
   return (
     <div className="navbarComponent">
       <div className="navHeader">

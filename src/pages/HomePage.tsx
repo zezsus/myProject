@@ -2,7 +2,7 @@ import React from "react";
 import NavbarComponent from "../components/NavbarComponent";
 import ListUser from "./ListUser";
 
-const HomePage = () => {
+const HomePage: React.FC = () => {
   return (
     <div>
       <div className="homeHeader">

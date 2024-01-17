@@ -3,14 +3,18 @@ import "../assets/styles/components/DeleteUser.scss";
 import { setDeleteUser, setShowDeleteUser } from "../redux/actions/userAction";
 import { useDispatch } from "react-redux";
 
-const DeleteUser = ({ userId }) => {
+interface DeleteUserProps {
+  userId: any;
+}
+
+const DeleteUser: React.FC<DeleteUserProps> = ({ userId }) => {
   const dispatch = useDispatch();
 
   const handleCancelDeleteUser = () => {
     dispatch(setShowDeleteUser(false));
   };
 
-  const handleDelete = (userId) => {
+  const handleDelete = (userId:any) => {
     const actionDelete = setDeleteUser(userId);
     dispatch(actionDelete);
     handleCancelDeleteUser();

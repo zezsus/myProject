@@ -4,15 +4,15 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { updateEidtUser } from "../redux/actions/userAction";
 
-const EditUser = () => {
+const EditUser: React.FC = () => {
   const navigate = useNavigate();
-  const editUser = useSelector((state) => state.user.editUser);
+  const editUser = useSelector((state:any) => state.user.editUser);
   const dispatch = useDispatch();
   const [updateUser, setUpdateUser] = useState(editUser);
 
-  const handleChangeInputEdit = (e) => {
+  const handleChangeInputEdit = (e:any) => {
     const { name, value } = e.target;
-    setUpdateUser((prevState) => ({
+    setUpdateUser((prevState:any) => ({
       ...prevState,
       [name]: value,
     }));
